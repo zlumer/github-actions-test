@@ -22,10 +22,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - run: echo "::set-env name=GIT_COMMIT_MSG::$(git log --format=%B -n 1 ${{ GITHUB_HEAD_REF }})"
+      - run: echo "::set-env name=GIT_COMMIT_MSG::$(git log --format=%B -n 1 ${{ env.GITHUB_HEAD_REF }})"
       - run: echo "::set-env name=GITHUB_BRANCH_URL::https://github.com/${{github.repository}}/tree/${{env.GIT_BRANCH_NAME}}"
-      - run: echo "::set-env name=SHA_SHORT::$(git rev-parse --short ${{ GITHUB_HEAD_REF }})"
-      - run: echo "::set-env name=SHA_LONG::$(git rev-parse ${{ GITHUB_HEAD_REF }})"
+      - run: echo "::set-env name=SHA_SHORT::$(git rev-parse --short ${{ env.GITHUB_HEAD_REF }})"
+      - run: echo "::set-env name=SHA_LONG::$(git rev-parse ${{ env.GITHUB_HEAD_REF }})"
       - run: echo "::set-env name=GITHUB_COMMIT_URL::https://github.com/${{github.repository}}/commit/${{github.sha}}"
       
       - run: echo "GIT_COMMIT_MSG $GIT_COMMIT_MSG"
