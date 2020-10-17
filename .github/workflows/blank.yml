@@ -27,6 +27,12 @@ jobs:
       - run: echo "::set-env name=GITHUB_BRANCH_URL::https://github.com/${{github.repository}}/tree/${{env.GIT_BRANCH_NAME}}"
       - run: echo "::set-env name=GITHUB_COMMIT_URL::https://github.com/${{github.repository}}/commit/${{github.sha}}"
       - run: echo "::set-env name=SHA_SHORT::$(git rev-parse --short HEAD)"
+      
+      - run: echo "GIT_COMMIT_MSG $GIT_COMMIT_MSG"
+      - run: echo "GIT_BRANCH_NAME $GIT_BRANCH_NAME"
+      - run: echo "GITHUB_BRANCH_URL $GITHUB_BRANCH_URL"
+      - run: echo "GITHUB_COMMIT_URL $GITHUB_COMMIT_URL"
+      - run: echo "SHA_SHORT $SHA_SHORT"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
